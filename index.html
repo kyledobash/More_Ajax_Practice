@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        h1 {
+        header {
+            background: #333;
             color:#fff;
             padding:20px;
             text-align: center;
@@ -27,11 +29,27 @@
         </h1>
     </header>
     <div id="container">
+        <div id="result">
 
+        </div>
     </div>
     <script>
         $(document).ready(function(){
-
+            // $('#result').load('test1.html', function (
+            //     responseTxt, statusTxt, xhr){
+            //         if(statusTxt == "success"){
+            //             alert('It went fine');                        
+            //         } else if (statusTxt == "error") {
+            //             alert('Error: ' + xhr.statusTxt);
+            //         }
+            // });
+            $.ajax({
+                method: 'GET',
+                url: 'https://jsonplaceholder.typicode.com/posts',
+                dataType: 'json'
+            }).done(function(data){
+                console.log(data);
+            });
         });
     </script>
 </body>
